@@ -104,15 +104,11 @@ Basic dbt tests are implemented to ensure data reliability:
 - Primary keys are `not_null` and `unique` in dimension tables
 - Mandatory fields in the fact table are `not_null`
 
-Tests can be run with:
-```bash
-dbt test
-
+Tests can be run with: dbt test
 To run the project: dbt run
 The final table will be created in BigQuery and can be directly connected to a BI tool.
 
 ## Dashboard
-
 The final table fact_question_day_tag_tbl is consumed by a dashboard (Looker Studio), which includes:
 
 - Overview KPIs (questions, unanswered rate)
@@ -123,13 +119,11 @@ The final table fact_question_day_tag_tbl is consumed by a dashboard (Looker Stu
 Dashboard link: https://lookerstudio.google.com/u/0/reporting/cafe30da-2393-4476-90ec-0be932830fe4/page/p_hhj5s7z2zd
 
 ## Assumptions & trade-offs
-
 - Tag categorization is rule-based; in a production setting, this could be replaced by ML-based clustering or NLP on question titles.
 - User segmentation is simplified to “new users ≤ 30 days”.
 - Data volume is limited to the last 5 years for performance reasons.
 
 ## Possible next steps
-
 - Apply NLP techniques to question titles to identify emerging topics beyond tags
 - Build incremental models for large-scale production usage
 - Introduce freshness and volume-based alerts for unanswered questions
